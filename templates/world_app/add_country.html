@@ -1,0 +1,35 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+    <br></br>
+    {% if submitted %}
+        <H1>Country added successfully!</H1>
+        <br></br>
+        <a href="{{ url_for('list_all_countries') }}" class="btn btn-primary" >Back to Countries</a>
+        <a href="{{ url_for('add_country') }}" class="btn btn-primary" >Add another country</a>
+    {% else %}
+    <h1>Add Country</h1>
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(for="name") }} {{ form.name(id="name", class="form-control", size=20) }}
+        </div>
+        <div class="form-group">
+            {{ form.area.label(for="area") }} {{ form.area(id="area", class="form-control", size=20) }}
+        </div>
+        <div class="form-group">
+            {{ form.population.label(for="population") }} {{ form.population(id="population", class="form-control", size=20) }}
+        </div>
+        <div class="form-group">
+            {{ form.cities.label(for="cities") }} {{ form.cities(id="cities", class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.government.label(for="government") }} {{ form.government(id="government", class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-success") }}
+        </div>
+    </form>
+    {% endif %}
+
+{% endblock content %}

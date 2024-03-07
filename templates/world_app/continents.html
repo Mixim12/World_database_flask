@@ -1,0 +1,36 @@
+{% extends 'world_app/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="display-4">Continents</h1>
+    <a href="{{ url_for('add_continent') }}" class="btn btn-warning">Add Continent</a>
+</div>
+
+<div class="row">
+    {% for continent in continents %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">{{ continent.name }}</h5>
+                        <div class="btn-group">
+                            <a href="{{ url_for('update_continent', continent_id=continent.id)}}" class="btn btn-outline-primary">Update</a>
+                            <a href="{{ url_for('delete_continent', continent_id=continent.id) }}" class="btn btn-outline-danger">Delete</a> 
+                        </div>
+                    </div>
+                    <ul class="list-unstyled mt-3">
+                        <li><strong>Area:</strong> {{ continent.area }}</li>
+                        <li><strong>Population:</strong> {{ continent.population }}</li>
+                        <li><strong>Countries:</strong></li>
+                        <ul class="list-unstyled">
+                            {% for country_name in continent.countries %}
+                                <li>{{ country_name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

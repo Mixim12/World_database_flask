@@ -1,0 +1,29 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+<h1>Update City</h1>
+<br/>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(for="name") }} {{ form.name(id="name", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.area.label(for="area") }} {{ form.area(id="area", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.population.label(for="population") }} {{ form.population(id="population", class="form-control") }}
+    </div>
+    <br/>
+    <div class="form-group">
+        <input class="form-check-input" id="{{ form.is_capital.id_for_label }}" type="checkbox" name="{{ form.is_capital.name }}" {% if form.is_capital.value %}checked{% endif %}>
+        <label class="form-check-label" for="{{ form.is_capital.id_for_label }}">Is Capital?</label>
+    </div>
+    <br/>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+    <a href="{{ url_for('list_all_cities') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock content %}

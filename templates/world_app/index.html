@@ -1,0 +1,46 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+<div class="container text-center mt-5">
+    <h1 class="display-3 text-white">World App</h1>
+    <p class="lead text-white">Explore continents, countries, and cities with ease.</p>
+    <p class="text-white">Built using Flask and Bootstrap.</p>
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Continents</h5>
+                    <p class="card-text">Discover different continents around the world.</p>
+                    <a href="{{ url_for('list_all_continents') }}" class="btn btn-outline-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Countries</h5>
+                    <p class="card-text">Learn about countries and their unique features.</p>
+                    <a href="{{ url_for('list_all_countries') }}" class="btn btn-outline-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Cities</h5>
+                    <p class="card-text">Discover vibrant cities and their characteristics.</p>
+                    <a href="{{ url_for('list_all_cities') }}" class="btn btn-outline-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <p class="text-white">Start your journey now!</p>
+</div>
+
+{% endblock content %}

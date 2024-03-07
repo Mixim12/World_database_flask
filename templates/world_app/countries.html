@@ -1,0 +1,38 @@
+{% extends 'world_app/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="display-4">Countries</h1>
+    <a href="{{ url_for('add_country') }}" class="btn btn-warning">Add Country</a>
+</div>
+
+<div class="row">
+    {% for country in countries %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title">{{ country.name }}</h5>
+                        <div class="btn-group">
+                            <a href="{{ url_for('update_country', country_id=country.id)}}" class="btn btn-outline-primary">Update</a>
+                            <a href="{{ url_for('delete_country', country_id=country.id) }}" class="btn btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled mt-3">
+                        <li><strong>Area:</strong> {{ country.area }}</li>
+                        <li><strong>Population:</strong> {{ country.population }}</li>
+                        <li><strong>Form of government:</strong> {{ country.government }}</li>
+                        <li><strong>Cities:</strong></li>
+                        <ul class="list-unstyled">
+                            {% for city_name in country.cities %}
+                                <li>{{ city_name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'world_app/base.html' %}
+{% block content %}
+
+<h1>Update Continent</h1>
+<br/>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(for="name") }} {{ form.name(id="name", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.area.label(for="area") }} {{ form.area(id="area", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.population.label(for="population") }} {{ form.population(id="population", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.countries.label(for="countries") }} {{ form.countries(id="countries", class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+</form>
+<a href="{{ url_for('list_all_continents') }}" class="btn btn-secondary">Cancel</a>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'world_app/base.html' %}
+
+{% block content %}
+    
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Delete Country</h1>
+    </div>
+    <br/>
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Are you sure you want to delete {{ country.name }}?</h5>
+            <form method="post" action="{{ url_for('delete_country', country_id=country.id) }}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{{ url_for('list_all_countries') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
